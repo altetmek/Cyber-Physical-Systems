@@ -4,7 +4,7 @@
 
 ### Enviromental configuration
 
-The primary development enviroment is Ubuntu 20.04 desktop, and it is assumed that this is what you are running.
+The primary development environment is Ubuntu 20.04 desktop, and it is assumed that this is what you are running.
 
 ```Linux
 # Update apt
@@ -71,31 +71,41 @@ At this point, the VS Code IDE will open, in the directory of this project.
 
 TODO: Project build instructions tbc
 
-## 1
+## Group Workflow
 
-## 2
-
-### 1 Add New Feature:
+### - Add new feature:
 
 - Arrange a working hour with your pair.
-- Pick up a task from the gitlab issue boards which is decided within the sprint planning for the pair.
+- Pick up a task from the GitLab issue boards which is decided within the sprint planning for the pair.
 - Create a new Issue if applicable.
 - Decide which branch will be used, if a new branch is needed, the pair will create a new one to work in.
 - Complete work on the the git board task.
 - Commit following the correct commit message protocol.
-- Pull/Push
+- Pull/Push.
 - If issue is resolved, close issue within GitLab.
+- If the feature is complete, conduct a code-review session during the scrum meetings.
+- If the the feature gets approved by the team, merge the feature branch into master.
 
-### 2 Fix unexpected behavior in existing features
+**Note: master branch is always protected.**
 
-## 3
+### - Fix unexpected behavior in existing features
+- When developing a new feature, the team will always create a separate branch from an up-to-date master, since master is always protected.
+During the code-review session of an under-development feature, the team shall individually consider if the feature is in-line with what is expected and required. If a disagreement emerge, the team shall follow the code-of-conduct protocol to resolve the disagreement. Once all members share the same point of view, the feature is worked on to fix the unexpected or faulty behavior(s) according to the project specifications. 
 
-    New features will need to be documented while implementation and double checked after. This includes following a standardized commit message pattern to allow back traceability.
-        The format will follow the following rules:
-        'reference to issue'+'description' + 'co-author(s)'
-        for example:
-        " resolve #1: finished commit structures.
+- The pair who developed the code which led to unexpected behavior within the feature shall try to identify the bug in the code within a reasonable time-frame.
+The pair will try another approach to solve the bug. The pair will research and try to find solutions for a similar problems online. The pair will try to use another algorithm to see if it can resolve the issue. 
+If the pair is having trouble/is stuck either with resolving the issue or time, they shall ask for further help from other team members.
 
-        Co-authored-by: Leith Hobson <leith@student.chalmers.se>"
+## Commit Message Guideline
 
-    This format with the knowledge of when the commit was pushed, and the account it was pushed from should allow the group to easily backtrack which team member implemented which function at what time and why.
+New features will need to be documented while implementation and double checked after. This includes following a standardized commit message pattern to allow back traceability.
+    The format will follow the following rules:
+
+    'reference to issue' + 'description' + 'co-author(s)'
+    for example:
+    
+    resolve #1: finished commit structures.
+
+    Co-authored-by: Leith Hobson <leith@student.chalmers.se>
+
+This format with the knowledge of when the commit was pushed, and the account it was pushed from should allow the group to easily backtrack which team member implemented which function at what time and why.
