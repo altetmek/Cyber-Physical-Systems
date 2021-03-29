@@ -101,11 +101,22 @@ If the pair is having trouble/is stuck either with resolving the issue or time, 
 New features will need to be documented while implementation and double checked after. This includes following a standardized commit message pattern to allow back traceability.
     The format will follow the following rules:
 
-    'reference to issue' + 'description' + 'co-author(s)'
+    [Main area] - topic resolves #{relevant issue}
+    - Details of each item
+    - Completed in this pull request
+
+    Co-authored-by: Author Name <cid@student.chalmers.se>
+
     for example:
     
-    resolve #1: finished commit structures.
+```git
+[Administration] - ReadMe resolves #7
+- Update commit message template
 
-    Co-authored-by: Leith Hobson <leith@student.chalmers.se>
+Co-authored-by: Altug Altetmek <altug@student.chalmers.se>
+Co-authored-by: Max Zimmer <maxfri@student.chalmers.se>
+Co-authored-by: Dia Istanbuly <diai@student.chalmers.se>
+```
+
 
 This format with the knowledge of when the commit was pushed, and the account it was pushed from should allow the group to easily backtrack which team member implemented which function at what time and why.
