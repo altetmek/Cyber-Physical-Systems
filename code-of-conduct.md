@@ -2,7 +2,7 @@
 
 1. For non-sprint meetings, they are planned ahead of time, at least 24hrs before the expected meeting will take place, to ensure that every group member has the opportunity to arrange time, or give prior “heads up” they will be late/absent.
 2. Conduct coding sessions with a pair-programming fashion.
-3. Use kanban practices with gitlab issue boards to trace and keep track of group work.
+3. Use kanban practices with GitLab issue boards to trace and keep track of group work.
    - integrate GitLab board into GitLab issues.
 4. Use scrum practices in combination with GitLab issue boards, refer to pair programming.
    - Weekly sprints with sprint planning, report and retrospective.
@@ -30,3 +30,6 @@
 2. We talk to each other and give all the members time to talk and explain their point of view.
 3. We give full attention to the person who is talking and making sure that their message has been received.
 4. After hearing the disagreements from all parties and discussing them among the team, we put the effort and focus on the positives rather than the negatives and move towards a mutual agreement.
+5. Since flipping a coin would lead to poor decisions and would not be applicable for most of the cases, we will be using a voting system where members will vote for the idea they support. In case of even number of votes the discussion shall continue until a vote is passed.
+6. Everyone has a room to express their opinions. Therefore, all members will have a fair chance to discuss and support their ideas and prove them worthy and useful. It is the responsibility of every team member to make sure everybody has the opportunity to raise their concerns, and is accounted for in terms of being encouraged to understand the possible final decision.
+7. As soon as a group member spots an imminent conflict, it is their responsibility to encourage the conflicting party to raise their voice of concern.
