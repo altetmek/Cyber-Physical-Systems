@@ -2,7 +2,36 @@
 
 ## Build and Run
 
-### Project configuration and building
+### Installing Docker (if not installed)
+
+If you do NOT have [Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04) please install it as bellow
+
+```Linux
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce docker-compose
+sudo systemctl status docker
+```
+
+At this point, you should get an output like:
+
+```Linux
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset>
+     Active: active (running) since Thu 2021-03-25 21:08:59 CET; 1 day 19h ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 8042 (dockerd)
+      Tasks: 13
+     Memory: 49.7M
+     CGroup: /system.slice/docker.service
+             └─8042 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/cont>
+```
+
+### Build and run
 
 ```Linux
 # clone the repository
@@ -22,7 +51,7 @@ Expected Output:
 Last name, First name;42 is a prime? 0
 ```
 
-## Contributing to repository 
+## Contributing to repository
 
 ### Environmental configuration
 
@@ -42,7 +71,7 @@ sudo apt-get install build-essential cmake git g++
 ```Linux
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-udo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt update
 apt-cache policy docker-ce
 sudo apt install docker-ce docker-compose
@@ -140,4 +169,3 @@ Co-authored-by: Dia Istanbuly <diai@student.chalmers.se>
 ```
 
 This format with the knowledge of when the commit was pushed, and the account it was pushed from should allow the group to easily backtrack which team member implemented which function at what time and why.
-
