@@ -21,7 +21,7 @@ RUN cd /opt/sources && \
     cd build && \
     cmake -D CMAKE_BUILD_TYPE=Release .. && \
     make && make test && cp helloworld /tmp
-
+# Section 1 end.
 ##################################################
 # Section 2: Bundle the application.
 FROM ubuntu:18.04
