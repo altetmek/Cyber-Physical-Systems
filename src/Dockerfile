@@ -29,9 +29,7 @@ MAINTAINER Leith Hobson leith@student.chalmers.se
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \
-    apt-get dist-upgrade -y && \
-    # Delete cached sources list to recover wasted storage space
-    rm -rf /var/lib/apt/lists/*
+    apt-get dist-upgrade -y
 
 WORKDIR /opt
 COPY --from=builder /tmp/helloworld .
