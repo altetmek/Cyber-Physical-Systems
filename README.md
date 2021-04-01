@@ -2,7 +2,17 @@
 
 ## Build and Run
 
-### Installing Docker (if not installed)
+### Check installed Docker version
+
+```Linux
+docker --version
+```
+expected output:
+```Linux
+Docker version xx.xx.x, build <your build number>
+```
+
+#### Installing Docker (if not installed)
 
 If you do NOT have [Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04) please install it as bellow
 
