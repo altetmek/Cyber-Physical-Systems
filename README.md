@@ -1,8 +1,30 @@
 # 2021-group-17
 
-## Setup
+## Build and Run
 
-### Enviromental configuration
+### Project configuration and building
+
+```Linux
+# clone the repository
+git clone git@git.chalmers.se:courses/dit638/students/2021-group-17.git
+cd 2021-group-17/src
+
+# Build docker image
+docker build -t g17/example:latest -f Dockerfile .
+
+# Run docker image
+docker run --rm g17/example:latest 42
+```
+
+Expected Output:
+
+```Linux
+Last name, First name;42 is a prime? 0
+```
+
+## Contributing to repository 
+
+### Environmental configuration
 
 The primary development environment is Ubuntu 20.04 desktop, and it is assumed that this is what you are running.
 
@@ -58,26 +80,6 @@ cat ./.ssh/id_rsa.pub
 
 Copy this output, and add the key to your GitLab account.
 
-### Project configuration and building
-
-```Linux
-# clone the repository
-git clone git@git.chalmers.se:courses/dit638/students/2021-group-17.git
-cd 2021-group-17/src
-
-# Build docker image
-docker build -t g17/example:latest -f Dockerfile .
-
-# Run docker image
-docker run --rm g17/example:latest 42
-```
-
-Expected Output:
-
-```Linux
-Last name, First name;42 is a prime? 0
-```
-
 ### Editing source code
 
 If you wish to work on the code, we recommend using the VS Code IDE. To open open the project in VS Code, run
@@ -87,8 +89,6 @@ code .
 ```
 
 At this point, the VS Code IDE will open, in the directory of this project.
-
-TODO: Project build instructions tbc
 
 ## Group Workflow
 
@@ -135,7 +135,9 @@ The format will follow the following rules:
 
 Co-authored-by: Altug Altetmek <altug@student.chalmers.se>
 Co-authored-by: Max Zimmer <maxfri@student.chalmers.se>
+Co-authored-by: Leith Hobson <leith@student.chalmers.se>
 Co-authored-by: Dia Istanbuly <diai@student.chalmers.se>
 ```
 
 This format with the knowledge of when the commit was pushed, and the account it was pushed from should allow the group to easily backtrack which team member implemented which function at what time and why.
+
