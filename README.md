@@ -58,12 +58,31 @@ cat ./.ssh/id_rsa.pub
 
 Copy this output, and add the key to your GitLab account.
 
-### Project configuration
+### Project configuration and building
 
 ```Linux
 # clone the repository
 git clone git@git.chalmers.se:courses/dit638/students/2021-group-17.git
-cd 2021-group-17.git
+cd 2021-group-17/src
+
+# Build docker image
+docker build -t g17/example:latest -f Dockerfile .
+
+# Run docker image
+docker run --rm g17/example:latest 42
+```
+
+Expected Output:
+
+```Linux
+Last name, First name;42 is a prime? 0
+```
+
+### Editing source code
+
+If you wish to work on the code, we recommend using the VS Code IDE. To open open the project in VS Code, run
+
+```Linux
 code .
 ```
 
@@ -89,17 +108,18 @@ TODO: Project build instructions tbc
 **Note: master branch is always protected.**
 
 ### - Fix unexpected behavior in existing features
+
 - When developing a new feature, the team will always create a separate branch from an up-to-date master, since master is always protected.
-During the code-review session of an under-development feature, the team shall individually consider if the feature is in-line with what is expected and required. If a disagreement emerge, the team shall follow the code-of-conduct protocol to resolve the disagreement. Once all members share the same point of view, the feature is worked on to fix the unexpected or faulty behavior(s) according to the project specifications. 
+  During the code-review session of an under-development feature, the team shall individually consider if the feature is in-line with what is expected and required. If a disagreement emerge, the team shall follow the code-of-conduct protocol to resolve the disagreement. Once all members share the same point of view, the feature is worked on to fix the unexpected or faulty behavior(s) according to the project specifications.
 
 - The pair who developed the code which led to unexpected behavior within the feature shall try to identify the bug in the code within a reasonable time-frame.
-The pair will try another approach to solve the bug. The pair will research and try to find solutions for a similar problems online. The pair will try to use another algorithm to see if it can resolve the issue. 
-If the pair is having trouble/is stuck either with resolving the issue or time, they shall ask for further help from other team members.
+  The pair will try another approach to solve the bug. The pair will research and try to find solutions for a similar problems online. The pair will try to use another algorithm to see if it can resolve the issue.
+  If the pair is having trouble/is stuck either with resolving the issue or time, they shall ask for further help from other team members.
 
 ## Commit Message Guideline
 
 New features will need to be documented while implementation and double checked after. This includes following a standardized commit message pattern to allow back traceability.
-    The format will follow the following rules:
+The format will follow the following rules:
 
     [Main area] - topic resolves #{relevant issue}
     - Details of each item
@@ -108,7 +128,7 @@ New features will need to be documented while implementation and double checked 
     Co-authored-by: Author Name <cid@student.chalmers.se>
 
     for example:
-    
+
 ```git
 [Administration] - ReadMe resolves #7
 - Update commit message template
@@ -117,6 +137,5 @@ Co-authored-by: Altug Altetmek <altug@student.chalmers.se>
 Co-authored-by: Max Zimmer <maxfri@student.chalmers.se>
 Co-authored-by: Dia Istanbuly <diai@student.chalmers.se>
 ```
-
 
 This format with the knowledge of when the commit was pushed, and the account it was pushed from should allow the group to easily backtrack which team member implemented which function at what time and why.
