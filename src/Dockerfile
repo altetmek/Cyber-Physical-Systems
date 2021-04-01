@@ -34,4 +34,4 @@ RUN apt-get update -y && \
 WORKDIR /opt
 COPY --from=builder /tmp/helloworld .
 ENTRYPOINT ["/opt/helloworld"]
-
+# End of section 2
