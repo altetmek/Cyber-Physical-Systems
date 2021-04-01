@@ -1,8 +1,59 @@
 # 2021-group-17
 
-## Setup
+## Build and Run
 
-### Enviromental configuration
+### Installing Docker (if not installed)
+
+If you do NOT have [Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04) please install it as bellow
+
+```Linux
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce docker-compose
+sudo systemctl status docker
+```
+
+At this point, you should get an output like:
+
+```Linux
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset>
+     Active: active (running) since Thu 2021-03-25 21:08:59 CET; 1 day 19h ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 8042 (dockerd)
+      Tasks: 13
+     Memory: 49.7M
+     CGroup: /system.slice/docker.service
+             └─8042 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/cont>
+```
+
+### Build and run
+
+```Linux
+# clone the repository
+git clone git@git.chalmers.se:courses/dit638/students/2021-group-17.git
+cd 2021-group-17/src
+
+# Build docker image
+docker build -t g17/example:latest -f Dockerfile .
+
+# Run docker image
+docker run --rm g17/example:latest 42
+```
+
+Expected Output:
+
+```Linux
+Last name, First name;42 is a prime? 0
+```
+
+## Contributing to repository
+
+### Environmental configuration
 
 The primary development environment is Ubuntu 20.04 desktop, and it is assumed that this is what you are running.
 
@@ -20,7 +71,7 @@ sudo apt-get install build-essential cmake git g++
 ```Linux
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-udo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt update
 apt-cache policy docker-ce
 sudo apt install docker-ce docker-compose
@@ -58,26 +109,6 @@ cat ./.ssh/id_rsa.pub
 
 Copy this output, and add the key to your GitLab account.
 
-### Project configuration and building
-
-```Linux
-# clone the repository
-git clone git@git.chalmers.se:courses/dit638/students/2021-group-17.git
-cd 2021-group-17/src
-
-# Build docker image
-docker build -t g17/example:latest -f Dockerfile .
-
-# Run docker image
-docker run --rm g17/example:latest 42
-```
-
-Expected Output:
-
-```Linux
-Last name, First name;42 is a prime? 0
-```
-
 ### Editing source code
 
 If you wish to work on the code, we recommend using the VS Code IDE. To open open the project in VS Code, run
@@ -87,8 +118,6 @@ code .
 ```
 
 At this point, the VS Code IDE will open, in the directory of this project.
-
-TODO: Project build instructions tbc
 
 ## Group Workflow
 
@@ -135,6 +164,7 @@ The format will follow the following rules:
 
 Co-authored-by: Altug Altetmek <altug@student.chalmers.se>
 Co-authored-by: Max Zimmer <maxfri@student.chalmers.se>
+Co-authored-by: Leith Hobson <leith@student.chalmers.se>
 Co-authored-by: Dia Istanbuly <diai@student.chalmers.se>
 ```
 
