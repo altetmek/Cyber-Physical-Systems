@@ -1,4 +1,4 @@
-# 2021-group-17
+# 2021-group-17 | ![Repository Pipeline Status](https://git.chalmers.se/courses/dit638/students/2021-group-17/badges/master/pipeline.svg)
 
 ## Build and Run
 
