@@ -13,7 +13,9 @@ TEST_CASE("Test PrimeChecker 1.")
     REQUIRE(pc.isPrime(7));
     REQUIRE(!pc.isPrime(9));
     REQUIRE(pc.isPrime(11));
-    REQUIRE(pc.isPrime(13));
+
+    // This test is going to fail
+    REQUIRE(!pc.isPrime(13));
 
     // Test NON prime number
     REQUIRE(!pc.isPrime(12));
