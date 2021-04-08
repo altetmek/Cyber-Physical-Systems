@@ -1,0 +1,61 @@
+# Copyright (C) 2021 - Group 7
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# Which Docker image shall be used on the GitLab runner?
+image: docker:20.10.5
+
+# Details about how to connect to the Docker service to run this build.
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ""
+
+services:
+  - name: docker:20.10.5-dind
+
+stages:
+  - build
+  - deploy
+
+# Display information before we start the build.
+before_script:
+  - docker info
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+# This section describes what shall be done to build and test the project.
+build-and-test:
+  except:
+    - tags
+  tags:
+    - docker-build
+  stage: build
+  script:
+    - docker build -f src/Dockerfile .
+
+# This section describes what shall be done to deploy artefacts from the project.
+release:
+  # Taken from: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string
+  # Regex for allowing tag names that only start with v and then followed by the format "vX.Y.Z".
+
+  only:
+   - /^(v)(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/
+  except:
+    - branches
+  tags:
+    - docker-build
+  stage: deploy
+  script:
+    - docker build -f src/Dockerfile -t "$CI_REGISTRY_IMAGE":"$CI_COMMIT_TAG" .
+    - docker push "$CI_REGISTRY_IMAGE":"$CI_COMMIT_TAG"
+
