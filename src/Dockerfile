@@ -3,7 +3,7 @@
 ##################################################
 # Section 1: Build the application
 FROM ubuntu:18.04 as builder
-MAINTAINER Leith Hobson leith@student.chalmers.se
+MAINTAINER Group 17
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \
@@ -16,7 +16,7 @@ RUN apt-get install -y --no-install-recommends \
 ADD . /opt/sources
 WORKDIR /opt/sources
 
-RUN cd /opt/sources && \
+RUN cd /opt/sources/src && \
     mkdir build && \
     cd build && \
     cmake -D CMAKE_BUILD_TYPE=Release .. && \
@@ -24,8 +24,8 @@ RUN cd /opt/sources && \
 # Section 1 end.
 ##################################################
 # Section 2: Bundle the application.
-FROM ubuntu:18.04
-MAINTAINER Leith Hobson leith@student.chalmers.se
+FROM ubuntu:20.04
+MAINTAINER Group 17
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \
