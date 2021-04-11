@@ -41,6 +41,11 @@ TriggeredBy: ● docker.socket
              └─8042 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/cont>
 ```
 
+#### Give your user account persmission to run Docker
+```Linux
+sudo usermode -aG docker ${user}
+```
+
 ### Build and run
 
 ```Linux
