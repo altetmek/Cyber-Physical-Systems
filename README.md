@@ -43,7 +43,12 @@ TriggeredBy: ● docker.socket
 
 #### Give your user account persmission to run Docker
 ```Linux
-sudo usermode -aG docker ${user}
+sudo usermod -aG docker ${USER}
+```
+Then check that the new permissions have been applied:
+```Linux
+su - ${USER}
+id -nG
 ```
 
 ### Build and run
