@@ -56,10 +56,9 @@ id -nG
 ```Linux
 # clone the repository
 git clone git@git.chalmers.se:courses/dit638/students/2021-group-17.git
-cd 2021-group-17/src
 
 # Build docker image
-docker build -t g17/example:latest -f Dockerfile .
+docker build -t g17/example:latest -f src/Dockerfile .
 
 # Run docker image
 docker run --rm g17/example:latest 42
