@@ -113,6 +113,16 @@ TriggeredBy: ● docker.socket
              └─8042 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/cont>
 ```
 
+Give your user account persmission to run Docker
+```Linux
+sudo usermod -aG docker ${USER}
+```
+Then check that the new permissions have been applied:
+```Linux
+su - ${USER}
+id -nG
+```
+
 (Otional) Install [VS Code](https://visualstudio.microsoft.com/vs/community/), the preffered (but not required) IDE.
 
 ```Linux
