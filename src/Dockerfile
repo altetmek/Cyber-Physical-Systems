@@ -21,10 +21,11 @@ RUN cd /opt/sources/src && \
     cd build && \
     cmake -D CMAKE_BUILD_TYPE=Release .. && \
     make && make test && cp helloworld /tmp
+
 # Section 1 end.
 ##################################################
 # Section 2: Bundle the application.
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 MAINTAINER Group 17
 
 RUN apt-get update -y && \
