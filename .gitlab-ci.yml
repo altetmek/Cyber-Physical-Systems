@@ -56,13 +56,17 @@ build-and-test:
     - cmake -D CMAKE_BUILD_TYPE=Release ..
     - make && make test
     - cd ../../
-    - gcovr --xml-pretty --exclude-unreachable-branches --print-summary -o coverage.xml
+    - gcovr --xml-pretty --exclude-unreachable-branches --print-summary . -o coverage.xml
+    - mkdir report
+    - gcovr --html --html-details -o report/code-coverage-report.html 
   coverage: /^\s*lines:\s*\d+.\d+\%/
   artifacts:
-    name: ${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}-${CI_COMMIT_SHA}
+    name: "CoverageReport-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}-${CI_COMMIT_SHA}"
     expire_in: 2 days
     reports:
       cobertura: coverage.xml
+    paths:
+      - report
 
 # This section describes what shall be done to deploy artefacts from the project.
 release:
