@@ -7,7 +7,9 @@
 ```Linux
 docker --version
 ```
+
 expected output:
+
 ```Linux
 Docker version xx.xx.x, build <your build number>
 ```
@@ -42,10 +44,13 @@ TriggeredBy: ● docker.socket
 ```
 
 #### Give your user account persmission to run Docker
+
 ```Linux
 sudo usermod -aG docker ${USER}
 ```
+
 Then check that the new permissions have been applied:
+
 ```Linux
 su - ${USER}
 id -nG
@@ -61,7 +66,7 @@ git clone git@git.chalmers.se:courses/dit638/students/2021-group-17.git
 cd 2021-group-17/
 
 # Build docker image
-docker build -t g17/example:latest -f src/Dockerfile .
+docker build -t g17/example:latest -f Dockerfile .
 
 # Run docker image
 docker run --rm g17/example:latest 42
@@ -116,10 +121,13 @@ TriggeredBy: ● docker.socket
 ```
 
 Give your user account persmission to run Docker
+
 ```Linux
 sudo usermod -aG docker ${USER}
 ```
+
 Then check that the new permissions have been applied:
+
 ```Linux
 su - ${USER}
 id -nG
