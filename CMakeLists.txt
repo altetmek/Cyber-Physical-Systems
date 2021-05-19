@@ -94,13 +94,7 @@ set(LIBRARIES ${LIBRARIES} ${OpenCV_LIBS})
 ################################################################################
 # Create executable.
 # TODO: This should execute the main
-add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/PrimeChecker.cpp)
-
-# add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/src/${PROJECT_NAME}.cpp)
-enable_testing()
-set(CMAKE_CXX_FLAGS "--coverage")
-add_executable(${PROJECT_NAME}-Runner src/TestPrimeChecker.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/PrimeChecker.cpp)
-add_test(NAME ${PROJECT_NAME}-Runner COMMAND ${PROJECT_NAME}-Runner)
+add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp )
 
 target_link_libraries(${PROJECT_NAME} ${LIBRARIES})
 
