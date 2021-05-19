@@ -432,6 +432,7 @@ int32_t main(int32_t argc, char **argv)
                     // If yellow cones were detected, mark the median position on the image
                     if (yellow_cones_detected)
                     {
+                        // Warnings for conversion to 'int' from 'double' considered, is of no consequence here
                         cv::drawMarker(yellow_threshold, cv::Point(mean_yellow_x, mean_yellow_y), white_cross_colour, MARKER_CROSS, cross_size, 1);
                         cv::drawMarker(crop, cv::Point(mean_yellow_x, mean_yellow_y), cv::Scalar(0, 255, 255), MARKER_CROSS, cross_size, 1);
                     }
@@ -439,6 +440,7 @@ int32_t main(int32_t argc, char **argv)
                     // If blue cones were detected, mark the median position on the image
                     if (blue_cones_detected)
                     {
+                        // Warnings for conversion to 'int' from 'double' considered, is of no consequence here
                         cv::drawMarker(blue_threshold, cv::Point(mean_blue_x, mean_blue_y), white_cross_colour, MARKER_CROSS, cross_size, 1);
                         cv::drawMarker(crop, cv::Point(mean_blue_x, mean_blue_y), cv::Scalar(255, 0, 0), MARKER_CROSS, cross_size, 1);
                     }
@@ -447,7 +449,7 @@ int32_t main(int32_t argc, char **argv)
                     // Determine if we have computed a valid turn angle
                     if (actual_ground_steering == 0)
                     {
-                        if ((steering_verdict == 0.049) || (steering_verdict == -0.049))
+                        if ((steering_verdict == straight))
                         {
                             correct_turn = 1;
                         }

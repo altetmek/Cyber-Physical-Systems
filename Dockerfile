@@ -22,7 +22,7 @@ WORKDIR /opt/sources
 RUN mkdir build && \
     cd build && \
     cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/tmp .. && \
-    make && make test && make install &&\
+    make && make install &&\
     cp Group17-Steering-Wheel-Angle /tmp
 
 # Section 1 end.
