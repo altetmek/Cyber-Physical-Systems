@@ -262,7 +262,7 @@ int32_t main(int32_t argc, char **argv)
                 }
 
                 // time stamp
-                int time_stamp = toMicroseconds(sharedMemory->getTimeStamp().second);
+                long int time_stamp = toMicroseconds(sharedMemory->getTimeStamp().second);
 
                 // If you want to access the latest received ground steering, don't forget to lock the mutex:
                 actual_ground_steering = 0;
